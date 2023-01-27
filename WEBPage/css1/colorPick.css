@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"),
+    url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff)
+      format("woff");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"),
+    url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff)
+      format("woff");
+}
+
+/* Used as an anchor point to position the color picker */
+.colorPickWrapper {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+#colorPick * {
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -ms-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+
+#colorPick {
+  background: rgb(32 32 32);
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 8px rgb(0 0 0 / 20%);
+  padding: 0.8rem 0.9rem;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: content-box;
+  overflow: scroll;
+}
+
+#colorPick span {
+  user-select: none;
+  font-size: 15pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #bbb;
+  margin-bottom: 0.4rem;
+  display: block;
+  clear: both;
+}
+
+.customColorHash {
+  border-radius: 5px;
+  height: 23px;
+  width: 122px;
+  margin: 1px 4px;
+  padding: 0 4px;
+  border: 1px solid #babbba;
+  outline: none;
+}
+.customColorHash.error {
+  border-color: #ff424c;
+  color: #ff424c;
+}
+
+.colorPickButton {
+  border-radius: 5px;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  display: inline-block;
+  border: thin solid #474747;
+}
+
+.colorPickButton:hover {
+  transform: scale(1.1);
+}
+
+.colorPickDummy {
+  background: #202020;
+  border: 1px dashed #bbb;
+}
+
+.colorsChild {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
+  gap: 0.3rem;
+}
+
+.currColorPan {
+  display: flex;
+  background: rgb(32 32 32);
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 8px rgb(0 0 0 / 20%);
+  padding: 0.8rem 0.9rem;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: content-box;
+  margin-bottom: 15px;
+}
+
+.currColorPan div {
+  min-width: 40px;
+  height: 40px;
+  margin: 0px 3px;
+  background-color: aqua;
+  border-radius: 0.25rem;
+}
+
+.currColorPan input {
+  width: 100%;
+  margin: 0px 3px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #2c2c2c;
+  background-clip: padding-box;
+  border: none;
+  border-radius: 0.25rem;
+}

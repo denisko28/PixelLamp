@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html manifest="pixel.manifest">
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" /> 
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta charset="UTF-8">
+        <title>Title of the document</title>
+        <link rel="stylesheet" href="./css1/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <script src="./js/gridScript.js"></script>
+        <link rel="stylesheet" href="./css1/grid.css">
+        <link rel="stylesheet" href="./css1/colorPick.css">
+        <script src="./js/colorPick.js"></script>
+        <script> const lampUrl = "http://192.168.0.109:82"; </script>
+    </head>
+    <body scroll="no">
+        <div id="top-panel">
+            <button id="clearDrawingButt" type="button" onclick="clearGrid()">
+                <a>Очистить</a>
+                <i class="fa fa-eraser"></i>
+            </button>
+            <div class="custom-select" style="width:158px;">
+                <select id="modeSelect">
+                    <option value="0" img="./img/drawIcon.png" selected>Рисование</option>
+                    <option value="1" img="./img/anim1Icon.jpg">Анимация 1</option>
+                    <option value="2" img="./img/anim2Icon.jpg">Анимация 2</option>
+                    <option value="3" img="./img/anim3Icon.jpg">Анимация 3</option>
+                    <option value="4" img="./img/lightIcon.jpg">Фонарик</option>
+                    <option value="5" img="./img/anim3Icon.jpg">Лампоча</option>
+                    <option value="6" img="./img/strawberryIcon.jpg">Клубника</option>
+                    <option value="7" img="./img/pineappleIcon.jpg">Ананас</option>
+                    <option value="8" img="./img/lightIcon.jpg">Змейка</option>
+                </select>
+            </div>
+        </div>
+        <div id="drawingField">
+            <div id="gridContainer" paintColor="#00ffff"></div>
+            <br>
+            <div class="picker"></div>
+        </div>
+        <script src="./js/modeScript.js"></script>
+        <script src="./js/customSelectScript.js"></script>
+        <script src="./js/drawingScript.js"></script>
+    </body>
+</html>

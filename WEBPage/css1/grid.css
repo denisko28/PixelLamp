@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+#gridContainer {
+  font-size: 0;
+  margin: auto;
+}
+
+.grid {
+  display: inline-block;
+  background-color: #000000;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #27282c;
+  outline: 0px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+/* .grid:hover {
+    background-color: black;
+    transition: 0.5s;
+  } */

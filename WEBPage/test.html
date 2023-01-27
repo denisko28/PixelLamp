@@ -1,0 +1,70 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png, .bmp" multiple>
+
+        <!-- <img id="img1" src="bitmap1.2.bmp"/> -->
+        <script>
+            var input = document.querySelector('input');
+            input.addEventListener('change', onImagesUpload);
+
+            function onImagesUpload() {
+                var curFiles = input.files;
+                for(var i = 0; i<curFiles.length; i++) {
+                    var imagePath = window.URL.createObjectURL(curFiles[i]);
+                    printImageAsBitArray(imagePath);
+                    console.log(curFiles[i]);
+                }
+            }
+
+            function componentToHex(c) {
+                var hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
+            }
+
+            function rgbToHex(r, g, b) {
+                return "0x" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+            }
+
+            // function rgbToHex(r, g, b) {
+            //     r = (r * 249 + 1014) >> 11;
+            //     g = (g * 253 + 505) >> 10;
+            //     b = (b * 249 + 1014) >> 11;
+            //     let RGB565 = 0;
+            //     RGB565 = RGB565 | (r << 11);
+            //     RGB565 = RGB565 | (g << 5);
+            //     RGB565 = RGB565 | b;
+                
+            //     return "0x"+RGB565.toString(16);
+            // }
+            function printImageAsBitArray(imagePath) {
+                var img1 = new Image();
+                img1.crossOrigin = "Anonymous";
+                img1.onload=function(){
+                    var w = img1.width;
+                    var h = img1.height;
+
+                    var canvas = document.createElement('canvas');
+                    canvas.width = w;
+                    canvas.height = h;
+                    ctx = canvas.getContext('2d');
+                    ctx.drawImage(img1, 0, 0);
+
+                    var pixelArray = ctx.getImageData(0,0, w, h).data;
+                    var outputStr = "";
+                    for(var x = 0; x < w; x++){
+                        for(var y = 0; y < h; y++){
+                            let index = (x + (y * w)) * 4;
+                            let hex = rgbToHex(pixelArray[index], pixelArray[index + 1], pixelArray[index + 2]);
+                            outputStr += hex.toString() == "0xffffff" ? "\t" : hex + ", ";
+                        }
+                        outputStr += "\n";
+                    }
+                    console.log(outputStr);
+                }
+                img1.src = imagePath;
+            }
+        </script>
+    </body>
+</html>
